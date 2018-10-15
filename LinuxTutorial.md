@@ -16,6 +16,8 @@ For this workshop, we will be connecting to the CCIS machines, so it is necessar
 - In the terminal, `ssh <username>@login.ccs.neu.edu`
 - Enter your password
 
+
+
 # Terminal Commands
 
 ## pwd
