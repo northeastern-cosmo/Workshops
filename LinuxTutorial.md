@@ -134,15 +134,6 @@ making a test file
 second line
 ```
 
-## --help
-Add this argument after a bash command to get helpful information about that command.
-
-```
-$ ls --help
-Usage: ls [OPTION]... [FILE]...
-.......
-```
-
 ## man
 _**man**ual_
 
@@ -180,3 +171,62 @@ CoSMO is cool, I enjoy it.
 ```
 By default, `sed` will only edit the _first_ match on each line, to edit the nth match, do `sed "s/.../.../n"`. To edit ALL matches, `sed "s/.../.../g`
 
+## alias
+Lets you assign a shorter name for a complicated (or simple) command
+
+```
+$ alias c='clear'
+$ alias ..='cd ..'
+```
+
+To make these commands permanent, you need to add them to the `~/.bashrc` file, otherwise they will disappear when you start a new session.
+
+## find 
+Used to find files/directories with certain characteristics
+
+```
+$ find . -name "*.txt
+./grep.txt
+./sample.txt
+$ find . -type 
+```
+
+## xargs
+_e**x**tended **arg**ument**s**_
+Converts standard input into arguments for a command
+
+```
+$ ls | xargs cat
+```
+
+# Helpful Notations
+
+
+## --help
+Add this argument after a bash command to get helpful information about that command.
+
+```
+$ ls --help
+Usage: ls [OPTION]... [FILE]...
+.......
+```
+
+## >
+Used to redirect standard output to a new location.
+
+`echo "new text" > new_file.txt`
+
+## >>
+Appends standard output to a specified location.
+
+`echo "added text" > existing_file.txt`
+
+## | 
+The pipe allows you to pass the output of the command on the left as input to the program on the right. Lets you chain together multiple commands.
+
+`find . -type f | xargs cat`
+
+## $(...)
+Allows for command substitution. Whatever is inside of the parentheses is evaluated, before the outer command is run.
+
+`echo "Today is $(date +"%m/%d/%Y")"`
