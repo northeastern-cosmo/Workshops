@@ -193,6 +193,7 @@ $ find . -type
 
 ## xargs
 _e**x**tended **arg**ument**s**_
+
 Converts standard input into arguments for a command
 
 ```
