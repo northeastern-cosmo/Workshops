@@ -171,4 +171,16 @@ dict_keys(['a', 'b', 'd'])
 dict_values([1, 2, 4])
 >>> d.items()
 dict_items([('a', 1), ('b', 2), ('d', 4)]) # Note this is iterable, see below how to use it
+>>> d.pop('d')
+4
+>>> d
+{'a': 1, 'b': 2}
+>>> 'a' in d
+True
+>>> 'd' in d
+False
+>>> 'a' not in d
+False
 ```
+[Full Dictionary Documentation](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)
+
