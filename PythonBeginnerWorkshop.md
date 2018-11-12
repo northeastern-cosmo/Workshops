@@ -383,7 +383,7 @@ class Doctor(Person):
 4. Try `doc.get_full_name()`
 5. You should see `Dr. Colin H Kelly`
 
-## Final Notes (before the big project)
+## Final Notes
 
 ### pip and virtualenvs
 
