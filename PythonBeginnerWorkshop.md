@@ -121,6 +121,8 @@ Lists are mutable ordered data structures of all the same type.
 >>> l.insert(1, 'b')
 >>> l
 ['a', 'b', 'd']
+>>> l + ['e', 'f', 'g']
+['a', 'b', 'd', 'e', 'f', 'g']
 ```
 
 [Full List Documentation](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
@@ -184,3 +186,106 @@ False
 ```
 [Full Dictionary Documentation](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)
 
+## Flow Control
+
+### If Statement
+
+```Python
+>>> if 'a' in d:
+...   print(d['a']) # Each line in the if statement needs to start with a tab. Python uses white space instead of braces
+... # Note that the dots indicate the interpreter is waiting for further input before executing your code.
+1
+>>> if 'd' in d:
+...   print(d['d'])
+... else:
+...   print('Not here!')
+...
+Not here!
+>>> if 'd' in d:
+...   print(d['d'])
+... elif 'b' in d: # elif is else if in other languages
+...   print(d['c'])
+... else:
+...   print('Not here!')
+...
+2
+```
+
+### For-loop
+
+```Python
+>>> l = ['a', 'b', 'c', 'd']
+>>> for item in l:
+...   print(item)
+a
+b
+c
+d
+```
+
+#### Looping through a dictionary
+
+```Python
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> for k, v in d.items():
+...   print(k + ': ' + str(v)) # Note the conversion from an int to a string using the str function
+a: 1
+b: 2
+c: 3
+```
+
+#### Side Bar: Traditional for-loops
+
+Python has no support for the traditional index based for-loops (think `for (i = 0; i < x; i++)` style for-loop). It is very rare that you will need this method, but it is still useful if you are manipulating the index as you run through the loop. To simulate this, you can use the range function:
+
+```Python
+>>> for i in range(len(l) - 1):
+...   print(l[i]) # Print every element except the last one (normally in this case you'd just slice the list, but just take this as an example)
+a
+b
+c
+```
+
+But what if you just want the index of the item? You can use the enumerate function:
+
+```Python
+>>> for i, v in enumerate(l):
+...   print(str(i) + ' ' + v)
+0 a
+1 b
+2 c
+```
+
+### List Comprehensions
+
+List comprehensions are a special type of for loop that can transform one list into another. They are useful replacements for the `map` and `filter` functions you'd find in a language like Racket (note that python does include these functions, as well as lambdas, but list comprehensions are the preferred method)
+
+```Python
+>>> l = [2, 1, 3, 1, 5, 6]
+>>> [x*2 for x in l] # Multiply each value by two
+[4, 2, 6, 2, 10, 12]
+>>> [x for x in l if x == 1] # Filter the list down to just the values equal to 1
+[1, 1]
+```
+
+### While-loops
+
+Python has while loops as well.
+
+```Python
+>>> x = 0
+>>> while x < 4:
+...   print(x) # Again, there is a built in function for this (range), but this is an easy example
+...   x += 1 # Note the assignment operator (there is no x++)
+...
+0
+1
+2
+3
+```
+
+### Final Notes
+
+Python does have `break`, `continue`, and `pass` keywords for controlling the flow of loops. You can read more about these, as well as read the full documentation about flow control here:
+
+[Flow Control Docs](https://docs.python.org/3/tutorial/controlflow.html)
