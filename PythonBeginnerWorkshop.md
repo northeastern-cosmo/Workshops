@@ -392,22 +392,3 @@ There are many useful libraries out there for python. Most, if not all, of these
 Another useful feature of pip is requirements.txt files. If your project includes a bunch of dependencies you want to distribute, you can list them in a requirements.txt file. This allows the people who download your project to quickly install all the dependencies they need to run it. Find out more [here](https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 Aside from pip, another important tool is virtualenv. This tool lets you create separate, isolated, python installations. This allows you to manage the dependencies for each of your projects individually, instead of having to install everything at the global level. It is best practice to use a new virtualenv for each of your projects. See [here](https://docs.python.org/3/library/venv.html) for more info.
-
-## Putting it all together (with some file I/O)
-
-__THIS IS NOT COMPLETE YET__
-
-For this small project, we are going to make a small program that given a medical provider's NPI (a unique national ID number for doctors), returns the number of durable medical equipment referrals made by that provider that were covered under Medicare. This data set is free for download from the Center for Medicare and Medicaid Services (CMS), which is part of the US Department of Health and Human Services.
-
-Download the data set by going [here](https://data.cms.gov/Medicare-Durable-Medical-Equipment-DME-/Medicare-Referring-Provider-DMEPOS-PUF-CY2016/r27q-vbe2) and clicking `Export`. Select the `CSV` option. Note that the file is about half a gigabyte, so the download might take a bit. Also be careful about opening this in Excel or a text editor, as it will eat up a fair amount of your computer's memory.
-
-### Step 0: Setting up our project
-
-1. Create a folder named DoctorDMEs
-2. Open a terminal and `cd` into this directory
-
-### Step 1: Create a Class for the Doctor
-
-1. Create a new file called `doctor.py` in the project folder and open it in your favorite text editor
-2. Lay out the class as follows:
-
