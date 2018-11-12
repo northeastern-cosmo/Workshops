@@ -289,3 +289,96 @@ Python has while loops as well.
 Python does have `break`, `continue`, and `pass` keywords for controlling the flow of loops. You can read more about these, as well as read the full documentation about flow control here:
 
 [Flow Control Docs](https://docs.python.org/3/tutorial/controlflow.html)
+
+## Functions
+
+Functions in python are straight forward and defined by the `def` keyword. Functions have their own scope.
+
+```Python
+>>> def addThreeVars(x, y, z):
+...   return x + y + z
+...
+>>> addThreeVars(1, 2, 3)
+>>> 6
+```
+
+# RIP REPL
+
+The REPL is great for testing out small pieces of code, but we need to put our code in actual files if we want to use the language for real!
+
+## A simple code file
+
+1. Create a new file called `hello.py` in your favorite text editor
+2. Type the following in the file:
+```Python
+def say_hello(name): # Note that python functions should be all lower case, separated by underscores
+  print('Hello ' + name)
+
+say_hello('John')
+```
+3. Save the file
+4. To run the file, simply call `python3 hello.py` from the command line (Don't forget to `cd` to the correct directory!)
+
+You should see the output: `Hello John`
+
+Note that everything written in the file will be executed from top to bottom in this case.
+
+## Modules
+
+Now, let's say we want to import our function into another file or the REPL environment so we can use it over and over again.
+
+1. Remove the `say_hello('John')` line from your file
+2. Open the python REPL by running `python3`
+3. Type `import hello`
+4. Now call your function using `hello.say_hello('Jack')`
+5. You should see `Hello Jack`
+
+In this case, the name of the file you just imported (`hello`) is the root module. The function `say_hello` is attached to this module, thus why you have to call `hello.say_hello()`.
+
+Note that there is also now a folder called `__pycache__` in the same directory as your `hello.py` file. If you list this directory, you should see a `.pyc` file. Python is an interpreted language, but the interpreter will compile modules into bytecode files to be reused later. This happens automatically when you first load the module, and when you change the source, the `.pyc` file will be recompiled. You should not commit the `.pyc` files to source control (e.g your git repo).
+
+If you just want to import a specific item or items from a module, you can use the `from . import .` syntax:
+
+1. Open the python REPL by running `python3`
+2. Type `from hello import say_hello`
+3. Now call `say_hello('George')`
+4. You should see `Hello George`
+
+## Classes
+
+In python, everything is actually an object. Strings for example have their own methods (such as split). You can easily make your own classes!
+
+1. Create a new file called `person.py`
+2. Enter the following:
+```Python
+class Person():
+  def __init__(this, first, middle, last): # Note that "this" is always passed in as the first argument to every one of the class's functions. This is how you access the class's member functions and variables
+    self.first = first
+    self.middle = middle
+    self.last = last
+
+  def get_full_name(self):
+    return self.first + ' ' + self.middle + ' ' + self.last
+```
+3. Open the REPL
+4. Run `from person import Person`
+5. To create a Person object and assign it to the variable `p`, run `p = Person('John', 'H', 'Doe')`
+6. Now you can call `p.get_full_name()`
+7. You should see `John H Doe`
+
+We can combine this with our `say_hello()` function. Just run `say_hello(p.get_full_name())`.
+
+### Inheritance
+
+Python supports full inheritance.
+
+1. Below your `Person` class, type following in your `person.py` file:
+```Python
+class Doctor(Person):
+  def get_full_name(self):
+    return "Dr. " + super().get_full_name()
+```
+2. Now in the REPL, run `from person import Doctor`
+3. Run `doc = Doctor('Colin', 'H', 'Kelly')`
+4. Try `doc.get_full_name()`
+5. You should see `Dr. Colin H Kelly`
