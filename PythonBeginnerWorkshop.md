@@ -352,7 +352,11 @@ In python, everything is actually an object. Strings for example have their own 
 2. Enter the following:
 ```Python
 class Person():
+<<<<<<< HEAD
   def __init__(self, first, middle, last): # Note that "self" is always passed in as the first argument to every one of the class's functions. This is how you access the class's member functions and variables
+=======
+  def __init__(self, first, middle, last): # Note that "this" is always passed in as the first argument to every one of the class's functions. This is how you access the class's member functions and variables
+>>>>>>> 61d6556a77e51952367bb9a2b8b0207119fcfbb7
     self.first = first
     self.middle = middle
     self.last = last
